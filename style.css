@@ -1,0 +1,424 @@
+/** -----------------------------------------------------------------
+  * SECTION TOKENS
+------------------------------------------------------------------ */
+
+:root {
+  /* Fonts */
+  --abril-f: 'Abril Fatface', cursive;
+  --cherry-b: 'Cherry Bomb';
+
+  /* Colors */
+  --cream: hsla(48, 67%, 89%, 1);
+  --sb-green: hsla(160, 100%, 19%, 1);
+  --fresh-mint: hsla(137, 86%, 56%, 1);
+  --mint: hsla(137, 59%, 73%, 1);
+
+  --bg-color: linear-gradient(180deg, #f6efd2 0%, #a0e5af 14.45%, #f6efd2 100%);
+  --sylized-text-color: linear-gradient(
+    180deg,
+    #006241 0%,
+    #2fef66 32.46%,
+    #f6efd2 68.42%
+  );
+
+  /* Spacing */
+  --space: 1.6rem; /* Should equal body line-height */
+  --section-space: calc(var(--space) * 4);
+  --flow-space: var(--space);
+  --gutter: var(--space);
+  --content-width: 55rem;
+  --sidebar-width: 15rem;
+
+  /* Modular Scale */
+  --ratio: 1.2; /* 1.2 is very similar to default browser style */
+  --ms-0: 1rem; /* 1rem = 16px | 1.25rem = 20px | 1.125rem = 18px */
+  --ms-1: calc(var(--ms-0) * var(--ratio));
+  --ms-2: calc(var(--ms-1) * var(--ratio));
+  --ms-3: calc(var(--ms-2) * var(--ratio));
+  --ms-4: calc(var(--ms-3) * var(--ratio));
+  --ms-5: calc(var(--ms-4) * var(--ratio));
+  --ms--1: calc(var(--ms-0) / var(--ratio));
+  --ms--2: calc(var(--ms--1) / var(--ratio));
+
+  /* Landing Page Font Sizes */
+
+  --fs-0: 1.25rem; /*20px*/
+  --fs-1: 2rem; /*32px*/
+  --fs-2: 2.5rem; /*40px*/
+}
+
+/* END SECTION TOKENS */
+
+/* SECTION RESET */
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* END SECTION RESET */
+
+/* Links that point to a location on the same page will scroll
+ * smoothly down to that location. */
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hide content visually, but allow screen readers to read the
+   * content. Note that for Accessibility guidelines, this content
+   * must become visible if toggled over using a keyboard. */
+
+.visually-hidden:not(:focus):not(:active),
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Give the hidden attribute most priority - fixes issue where
+   * an html element can be marked as hidden but is still visible.
+   * Use aria-hidden="true" to hide visual elements from
+   * screen readers. */
+
+[hidden] {
+  display: none !important;
+}
+
+/* Ensures disabled elements do not accept events */
+
+[disabled] {
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}
+
+/* Use primary color for focus styles */
+
+:focus-visible {
+  outline-color: var(--color-primary-500);
+  outline-offset: 3px;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+/* Adds a margin above an element when it is the target of an ID link */
+
+* {
+  scroll-margin-top: var(--space);
+  scroll-margin-bottom: var(--space);
+}
+
+::selection {
+  background-color: var(--color-primary-100);
+}
+
+/** -----------------------------------------------------------------
+    * SECTION TYPOGRAPHY
+  ------------------------------------------------------------------ */
+
+/* The document's default font, color, size, and line height */
+
+body {
+  box-sizing: border-box;
+  font-family: var(--abril-f);
+  color: var(--sb-green);
+  line-height: 1.6;
+  font-size: var(--fs-0);
+  background: linear-gradient(180deg, #f6efd2 0%, #a0e5af 14.45%, #f6efd2 100%);
+  height: 100vh;
+  width: 100%;
+}
+
+.content-wrapper {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+/* Navigation Bar and Logo Placement for Mobile */
+nav {
+  display: flex;
+  justify-content: right;
+  border-bottom: 1px solid hsla(48, 67%, 89%, 0.8);
+  width: 100%;
+  height: 122px;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  position: relative;
+  top: 27px;
+  right: 17px;
+}
+
+.hamburger-top,
+.hamburger-mid,
+.hamburger-bot {
+  background: #f6efd2;
+  border: 1.75px solid #006241;
+  border-radius: 4px;
+  box-shadow: -2px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.hamburger-top {
+  width: 35px;
+  height: 6.67px;
+}
+
+.hamburger-mid {
+  width: 23px;
+  height: 6.67px;
+  transform: translateY(5.33px);
+}
+
+.hamburger-bot {
+  width: 35px;
+  height: 6.67px;
+  transform: translateY(10.66px);
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: -4.188rem;
+}
+
+#logo {
+  cursor: pointer;
+}
+
+/* Main Content */
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-section-wrapper {
+  position: relative;
+  bottom: 60px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.exotic,
+.lively,
+.tailored {
+  align-items: center;
+}
+
+.exotic,
+.lively {
+  letter-spacing: 0.09em;
+}
+
+p {
+  font-size: var(--fs-0);
+  text-align: center;
+}
+
+.tailored {
+  justify-content: center;
+  flex-direction: column;
+  display: inline;
+  margin-bottom: 0;
+}
+
+h2,
+.you {
+  font-family: var(--cherry-b);
+  font-size: var(--fs-1);
+  color: var(--cream);
+  -webkit-text-stroke: 1px var(--sb-green);
+  text-shadow: -2px 2px 5px rgba(0, 0, 0, 0.35);
+}
+
+.dot-color {
+  font-family: var(--abril-f);
+  color: var(--sb-green);
+  font-size: var(--fs-1);
+}
+
+.gradient-text-effect {
+  background-color: var(--cream);
+  background-image: linear-gradient(
+    180deg,
+    #006241 0%,
+    #2fef66 32.46%,
+    #f6efd2 68.42%
+  );
+  background-size: 100%;
+  text-shadow: none;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+#scissors {
+  position: relative;
+  bottom: 42px;
+  left: 125px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#download-now-btn {
+  width: 285px;
+  height: 50px;
+  background: var(--mint);
+  border: 1px solid #006241;
+  box-shadow: -2px 4px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 35.5px;
+  color: var(--sb-green);
+  font-family: var(--cherry-b);
+  text-transform: uppercase;
+  font-size: var(--fs-0);
+}
