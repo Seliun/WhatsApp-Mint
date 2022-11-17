@@ -1,5 +1,5 @@
 /** -----------------------------------------------------------------
-  * SECTION TOKENS
+  ** SECTION TOKENS
 ------------------------------------------------------------------ */
 
 :root {
@@ -21,7 +21,7 @@
     #f6efd2 68.42%
   );
 
-  /* Spacing */
+  /** Spacing */
   --space: 1.6rem; /* Should equal body line-height */
   --section-space: calc(var(--space) * 4);
   --flow-space: var(--space);
@@ -29,7 +29,7 @@
   --content-width: 55rem;
   --sidebar-width: 15rem;
 
-  /* Modular Scale */
+  /** Modular Scale */
   --ratio: 1.2; /* 1.2 is very similar to default browser style */
   --ms-0: 1rem; /* 1rem = 16px | 1.25rem = 20px | 1.125rem = 18px */
   --ms-1: calc(var(--ms-0) * var(--ratio));
@@ -40,16 +40,16 @@
   --ms--1: calc(var(--ms-0) / var(--ratio));
   --ms--2: calc(var(--ms--1) / var(--ratio));
 
-  /* Landing Page Font Sizes */
+  /** Landing Page Font Sizes */
 
   --fs-0: 1.25rem; /*20px*/
   --fs-1: 2rem; /*32px*/
   --fs-2: 2.5rem; /*40px*/
 }
 
-/* END SECTION TOKENS */
+/** END SECTION TOKENS */
 
-/* SECTION RESET */
+/** SECTION RESET */
 
 * {
   box-sizing: border-box;
@@ -146,7 +146,7 @@ video {
   vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
+/** HTML5 display-role reset for older browsers */
 
 article,
 aside,
@@ -189,10 +189,10 @@ table {
   border-spacing: 0;
 }
 
-/* END SECTION RESET */
+/** END SECTION RESET */
 
-/* Links that point to a location on the same page will scroll
- * smoothly down to that location. */
+/** Links that point to a location on the same page will scroll
+ ** smoothly down to that location. */
 
 @media (prefers-reduced-motion: no-preference) {
   html {
@@ -200,7 +200,7 @@ table {
   }
 }
 
-/* Hide content visually, but allow screen readers to read the
+/** Hide content visually, but allow screen readers to read the
    * content. Note that for Accessibility guidelines, this content
    * must become visible if toggled over using a keyboard. */
 
@@ -215,7 +215,7 @@ table {
   width: 1px;
 }
 
-/* Give the hidden attribute most priority - fixes issue where
+/** Give the hidden attribute most priority - fixes issue where
    * an html element can be marked as hidden but is still visible.
    * Use aria-hidden="true" to hide visual elements from
    * screen readers. */
@@ -224,14 +224,14 @@ table {
   display: none !important;
 }
 
-/* Ensures disabled elements do not accept events */
+/** Ensures disabled elements do not accept events */
 
 [disabled] {
   pointer-events: none !important;
   cursor: not-allowed !important;
 }
 
-/* Use primary color for focus styles */
+/** Use primary color for focus styles */
 
 :focus-visible {
   outline-color: var(--color-primary-500);
@@ -240,7 +240,7 @@ table {
   outline-width: 2px;
 }
 
-/* Adds a margin above an element when it is the target of an ID link */
+/** Adds a margin above an element when it is the target of an ID link */
 
 * {
   scroll-margin-top: var(--space);
@@ -252,10 +252,10 @@ table {
 }
 
 /** -----------------------------------------------------------------
-    * SECTION TYPOGRAPHY
+    ** SECTION TYPOGRAPHY
   ------------------------------------------------------------------ */
 
-/* The document's default font, color, size, and line height */
+/** The document's default font, color, size, and line height */
 
 body {
   box-sizing: border-box;
@@ -271,15 +271,16 @@ body {
 .content-wrapper {
   margin-left: 15px;
   margin-right: 15px;
+  height: 100vh;
 }
 
-/* Navigation Bar and Logo Placement for Mobile */
+/** Navigation Bar and Logo Placement for Mobile */
 nav {
   display: flex;
   justify-content: right;
   border-bottom: 1px solid hsla(48, 67%, 89%, 0.8);
   width: 100%;
-  height: 122px;
+  height: 100px;
 }
 
 .hamburger-icon {
@@ -326,7 +327,7 @@ nav {
   cursor: pointer;
 }
 
-/* Main Content */
+/** Main Content */
 
 .info-section {
   display: flex;
@@ -421,4 +422,144 @@ h2,
   font-family: var(--cherry-b);
   text-transform: uppercase;
   font-size: var(--fs-0);
+}
+
+#download-now-btn:hover {
+  background-color: var(--sb-green);
+  color: var(--cream);
+  cursor: pointer;
+}
+
+footer .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+footer h3 {
+  padding-bottom: 10px;
+  font-size: 1.05rem;
+}
+
+footer {
+  background-color: var(--sb-green);
+  color: var(--cream);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+.footer-links {
+  text-decoration: none;
+  color: var(--cream);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.footer-links:hover {
+  text-decoration: underline;
+}
+
+.all-rights-reserved {
+  background-color: var(--cream);
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.whatsapp,
+.company,
+.download,
+.help {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* Large devices (tablets/iPads, 481px and above) */
+@media (min-width: 481px) {
+  h2,
+  .you,
+  .dot-color {
+    font-size: 2.75rem;
+  }
+  #logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .illustration {
+    width: 50%;
+  }
+
+  .info-container {
+    margin-bottom: 50px;
+  }
+
+  p,
+  button {
+    font-size: var(--fs-1);
+  }
+
+  #scissors {
+    width: 80px;
+    height: 80px;
+    bottom: 65px;
+    left: 160px;
+  }
+
+  #download-now-btn {
+    width: 300px;
+    height: 60px;
+    position: relative;
+    bottom: 80px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and above) */
+@media (min-width: 922px) {
+  h2,
+  .you,
+  .dot-color {
+    font-size: 3.75rem;
+  }
+
+  #logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .illustration {
+    width: 50%;
+  }
+
+  .info-container {
+    margin-bottom: 50px;
+  }
+
+  p,
+  button {
+    font-size: var(--fs-1);
+  }
+
+  #scissors {
+    width: 100px;
+    height: 100px;
+    bottom: 82px;
+    left: 350px;
+  }
+
+  #download-now-btn {
+    width: 400px;
+    height: 75px;
+    position: relative;
+    bottom: 30px;
+  }
+
+  footer .content-wrapper {
+    flex-direction: row;
+  }
 }
